@@ -1,32 +1,49 @@
 using System;
 
-namespace RectangleCalculations
+class TaxCalculator
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        // Prompt the user to enter the gross pay
+        Console.WriteLine("Enter the gross pay:");
+        double grossPay = Convert.ToDouble(Console.ReadLine());
+
+        // Initialize variables for tax rate and tax amount
+        double taxRate = 0;
+        double taxAmount = 0;
+
+        // Determine the tax rate based on the gross pay
+        if (grossPay >= 40000)
         {
-            try
-            {
-                // Input the width and length
-                Console.Write("Enter the width of the rectangle: ");
-                double width = Convert.ToDouble(Console.ReadLine());
-
-                Console.Write("Enter the length of the rectangle: ");
-                double length = Convert.ToDouble(Console.ReadLine());
-
-                // Calculate area and perimeter
-                double area = width * length;
-                double perimeter = 2 * (width + length);
-
-                // Display results
-                Console.WriteLine($"Area of the rectangle: {area:F2}");
-                Console.WriteLine($"Perimeter of the rectangle: {perimeter:F2}");
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid input. Please enter valid numeric values for width and length.");
-            }
+            taxRate = 0.30;
         }
+        else if (grossPay >= 30000 && grossPay < 40000)
+        {
+            taxRate = 0.25;
+        }
+        else if (grossPay >= 20000 && grossPay < 30000)
+        {
+            taxRate = 0.15;
+        }
+        else if (grossPay >= 10000 && grossPay < 20000)
+        {
+            taxRate = 0.10;
+        }
+        else
+        {
+            taxRate = 0; // No tax for gross pay below 10,000
+        }
+
+        // Calculate the tax amount
+        taxAmount = grossPay * taxRate;
+
+        // Calculate the net pay
+        double netPay = grossPay - taxAmount;
+
+        // Output the results
+        Console.WriteLine("\nGross Pay: $" + grossPay);
+        Console.WriteLine("Tax Rate: " + (taxRate * 100) + "%");
+        Console.WriteLine("Tax Amount: $" + taxAmount);
+        Console.WriteLine("Net Pay: $" + netPay);
     }
 }
