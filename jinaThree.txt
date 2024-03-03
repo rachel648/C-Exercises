@@ -1,0 +1,18 @@
+using System;
+
+class JinaThree
+{
+   static void Main(string[] args) 
+   {
+      string jina, religion, gender;
+
+      Console.Write("Enter your name -> ");
+      jina = Console.ReadLine();
+      Console.Write("Enter your gender -> ");
+      gender = Console.ReadLine();
+      Console.Write("Enter your religion -> ");
+      religion = Console.ReadLine();
+
+      Console.WriteLine("Your name is {0}. You are a {1} {3}.", jina, gender, religion);
+   }
+}
