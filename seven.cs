@@ -1,50 +1,31 @@
 using System;
 
-class Figures
+class Program
 {
     static void Main(string[] args)
     {
-        int figure;
-        int dimension1;
-        int dimension2;
-        int dimension3;
+        Console.Write("Enter the first number: ");
+        double num1 = Convert.ToDouble(Console.ReadLine());
 
-        Console.WriteLine(" 1) Rectangle");
-        Console.WriteLine(" 2) Circle");
-        Console.WriteLine(" 3) Right-angled triangle");
+        Console.Write("Enter the second number: ");
+        double num2 =  Convert.ToDouble(Console.ReadLine());
 
-        Console.WriteLine("Select a figure by number");
-        figure = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("\nBefore swapping:");
+        Console.WriteLine("Number 1:" + num1 );
+        Console.WriteLine("Number 2:" +num2);
 
-        Console.WriteLine("Enter dimension1");
-        dimension1 = Convert.ToInt32(Console.ReadLine());
+        // Call the swapNumbers function to swap the values
+        swapNumbers(ref num1, ref num2);
 
-        Console.WriteLine("Enter dimension2");
-        dimension2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("\nAfter swapping:");
+        Console.WriteLine("Number 1:" + num1);
+        Console.WriteLine("Number 2:" + num2);
+    }
 
-        if (figure == 1)
-        {
-            Console.WriteLine("The type of figure is a rectangle");
-            Console.WriteLine("Area: " + (dimension1 * dimension2));
-            Console.WriteLine("Perimeter: " + (2 * (dimension1 + dimension2)));
-        }
-        else if (figure == 2)
-        {
-            Console.WriteLine("The type of figure is a circle");
-            Console.WriteLine("Area: " + (Math.PI * dimension1 * dimension1));
-            Console.WriteLine("Perimeter: " + (2 * Math.PI * dimension1));
-        }
-        else if (figure == 3)
-        {
-            Console.WriteLine("The type of figure is a right-angled triangle");
-            Console.WriteLine("Enter dimension3");
-            dimension3 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Area: " + 0.5 * dimension1 * dimension2);
-            Console.WriteLine("Perimeter: " + (dimension1 + dimension2 + dimension3));
-        }
-        else
-        {
-            Console.WriteLine("Invalid figure number");
-        }
+    static void swapNumbers(ref double a, ref double b)
+    {
+        double temp = a;
+        a = b;
+        b = temp;
     }
 }
