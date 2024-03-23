@@ -1,36 +1,34 @@
 using System;
 
-class Program
+class Numberset
 {
     static void Main(string[] args)
     {
-        // Accepting input for two numbers
-        Console.WriteLine("Enter the first number:");
-        double number1 = double.Parse(Console.ReadLine());
+        Console.Write("How many numbers do you want to enter? ");
+        int numCount = Convert.ToInt32(Console.ReadLine());
 
-        Console.WriteLine("Enter the second number:");
-        double number2 = double.Parse(Console.ReadLine());
+        int[] numbers = new int[numCount];
 
-        // Checking if the smaller number is zero
-        if (number2 == 0)
+        for (int i = 0; i < numCount; i++)
         {
-            Console.WriteLine("Error: Cannot divide by zero");
+             Console.Write("Enter number {0}:> ", i + 1);
+            numbers[i] = Convert.ToInt32(Console.ReadLine());
         }
-        else
+
+        Console.WriteLine("\nNumbers before sorting:");
+        foreach (int number in numbers)
         {
-            // Dividing the bigger number by the smaller number
-            double result;
-            if (number1 > number2)
-            {
-                result = number1 / number2;
-            }
-            else
-            {
-                result = number2 / number1;
-            }
-            
-            // Displaying the result
-            Console.WriteLine("Result: " + result);
+            Console.Write(number + " ");
         }
+
+        Array.Sort(numbers); 
+
+        Console.WriteLine("\n\nNumbers after sorting:");
+        foreach (int number in numbers)
+        {
+            Console.Write(number + " ");
+        }
+
+        Console.WriteLine();
     }
 }
